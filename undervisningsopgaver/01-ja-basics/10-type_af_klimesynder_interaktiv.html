@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opgave 02</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Hvor lang er din flyrejse i timer?</p>
+    <input type="text" id="flyrejse">
+    <button>Klik og bereg arealet, kig i konsollen.</button>
+
+    <script>
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            let flyrejse = document.querySelector("#flyrejse").value;
+            let co2 = 109;
+
+
+            let kg = flyrejse * co2;
+
+
+
+            let udregning = `Ved ${flyrejse} timers flyrejse har du udledt ${flyrejse * co2} kg CO2 `;
+
+            let resultat;
+            if (kg < 100) {
+                resultat = "Tæt på Thunberg";
+            } else if (kg < 200) {
+
+                resultat = "Ja ja, du behøver ikke at melde dig ud af Å!";
+
+            } else if (kg < 600) {
+                resultat = "Det er god for turismen i nordeuropa";
+            } else if (kg > 600) {
+                resultat = "Nå ja vi kan jo altid kolonisere en anden planet...";
+
+            }
+            if (kg = isNaN) {
+                resultat = " Det er ikke et tal prøv igen";
+
+            }
+
+
+            console.log(udregning + resultat);
+        }
+
+    </script>
+</body>
+
+</html>
