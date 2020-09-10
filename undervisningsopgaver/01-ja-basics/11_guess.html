@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opgave 02</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <p>Gæt på et tal mellem 1-20</p>
+    <input type="text" id="click">
+    <button>Klik og tjek om du har gættet rigtigt.</button>
+
+    <script>
+        let tal = Math.round(Math.random() * 21);
+        let antalgæt = 0;
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+
+        function buttonClicked() {
+
+            let resultat;
+
+
+            let tal = Math.round(Math.random() * 20);
+            console.log(tal);
+
+
+            if (tal < 20) {
+                resultat = "Tallet er for højt";
+
+            } else if (tal > 20) {
+                resultat = "Tallet er for lavt";
+
+            } else if (tal == tal) {
+                resultat = "Korrekt";
+            }
+
+            console.log(resultat);
+        }
+
+    </script>
+</body>
+
+</html>

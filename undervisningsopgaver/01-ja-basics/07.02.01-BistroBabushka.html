@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bistro Babushka</title>
+    <link rel="stylesheet" href="">
+</head>
+<style>
+    .button {
+        background-color: #ffa427;
+        border: none;
+        color: black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .buttom hover {
+        background-color: #fa9101
+    }
+
+</style>
+<h1>Alle</h1>
+<header>
+
+    <button class="filter valgt" data-mad="alle">Alle</button>
+    <button class="filter" data-mad="f">Forret</button>
+    <button class="filter" data-mad="h">Hovederet</button>
+    <button class="filter" data-mad="d">Desert</button>
+</header>
+
+<body>
+    <script>
+        let personer;
+        let filter = "k";
+        document.addEventListener("DOMContentLoaded", loadJSON)
+
+        async function loadJSON() {
+            const JSONData = await
+            fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0");
+            personer = await JSONData.json();
+            addEventListenerToButtons();
+            viaPersoner();
+        }
+
+        function visPersoner() {
+            const templatePointer = document.querySelector("template");
+            const lidtPointer = document.querySelector("#list");
+            listPointer.innerHTML = "";
+            personer.feed.entry.forEach(person => {
+                if.(filter == "alle" || filter == person.gsx$køn.$t) {
+                    console.log(person);
+                    const minKlon = templatePointer.cloneNode(true).content;
+                    minKlon.querySelector("h2").textContent = person.gsx$navn.$t;
+                    minKlon.querySelector("img").src = person.gsx$billede.$t;
+                    lidtPointer.appendChild(minKlon);
+
+
+                }
+            })
+        }
+
+        function addEventListenersToButtons() {
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.addEventListener("click", filterBTNs);
+            });
+        }
+
+        function filterBTNs() {
+            filter = this.dataset.mad;
+            visPersoner();
+        }
+
+    </script>
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>
